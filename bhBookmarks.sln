@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bhBookmarks.Web", "bhBookmarks.Web\bhBookmarks.Web.csproj", "{A980A83B-5C21-40C0-81D1-854925A5EFA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bhBookmarks.Data", "bhBookmarks.Data\bhBookmarks.Data.csproj", "{4E2AF457-B067-4D63-BA75-AC79782B620A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A980A83B-5C21-40C0-81D1-854925A5EFA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A980A83B-5C21-40C0-81D1-854925A5EFA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A980A83B-5C21-40C0-81D1-854925A5EFA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A980A83B-5C21-40C0-81D1-854925A5EFA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E2AF457-B067-4D63-BA75-AC79782B620A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E2AF457-B067-4D63-BA75-AC79782B620A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E2AF457-B067-4D63-BA75-AC79782B620A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E2AF457-B067-4D63-BA75-AC79782B620A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0AE91103-164D-4972-AB76-EEC93EF7BDD1}
+	EndGlobalSection
+EndGlobal
