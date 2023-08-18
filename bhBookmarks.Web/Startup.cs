@@ -5,25 +5,35 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Text.Json.Serialization;
 
 namespace bhBookmarks.Web
 {
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
+        private string _cookieScheme = "bhBookmarks";
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddControllersWithViews();
-
-            // In production, the React files will be served from this directory
+            services.AddAuthentication(_cookieScheme)
+                          .AddCookie(_cookieScheme, options =>
+                          {
+                              options.LoginPath = "/account/login";
+                          });
+            services.AddSession();
+            services.AddControllersWithViews().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            });
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/build";
@@ -49,6 +59,10 @@ namespace bhBookmarks.Web
             app.UseSpaStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
