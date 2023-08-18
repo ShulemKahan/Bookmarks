@@ -8,8 +8,6 @@ const UserContextComponent = ({ children }) => {
     const [user, setUser] = useState({})
     const updateUser = async () => {
         const { data } = await axios.get('/api/account/updateuser')
-        console.log(data)
-        console.log("s")
         setUser(data)
     }
 

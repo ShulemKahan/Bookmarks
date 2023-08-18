@@ -49,10 +49,27 @@ namespace bhBookmarks.Web.Controllers
         [Route("deletebookmark")]
         public void DeleteBookmark(Bookmark bookmark)
         {
-            var accountRepo = new AccountRepository(_connectionString);
-            bookmark.UserId = accountRepo.GetByEmail(User.Identity.Name).Id;
+           
             var repo = new BookmarkRepository(_connectionString);
             repo.DeleteBookmark(bookmark);
         }
+
+        [HttpPost]
+        [Authorize]
+        [Route("updatebookmark")]
+        public void UpdateBookmark(Bookmark bookmark)
+        {
+            var repo = new BookmarkRepository(_connectionString);
+            repo.UpdateBookmark(bookmark);
+        }
+
+        [HttpGet]
+        [Route("gettopfive")]
+        public List<TopBookmark> GetTopFive()
+        {
+            var repo = new BookmarkRepository(_connectionString);
+            return repo.TopFive();
+        }
+
     }
 }

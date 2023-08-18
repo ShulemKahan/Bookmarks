@@ -39,6 +39,15 @@ const MyBookmarks = () => {
 
         const newList = editBookmarks.filter(b => b !== id)
         setEditBookmarks(newList)
+
+        await getBookmarks()
+
+    }
+
+    const onUpdateClick = async (b) => {
+        await axios.post('api/bookmark/updatebookmark', b)
+        const newList = editBookmarks.filter(id => id !== b.id)
+        setEditBookmarks(newList)
         await getBookmarks()
     }
 
@@ -69,6 +78,7 @@ const MyBookmarks = () => {
                             onEditClick={() => onEditClick(b.id)}
                             isEditing={isEditing(b.id)}
                             onTitleChange={(e) => onTitleChange(e, b.id)}
+                            onUpdateClick={() => onUpdateClick(b)}
                             onCancelClick={() => onCancelClick(b.id)}
                             onDeleteClick={() => onDeleteClick(b)}
                         />)}
